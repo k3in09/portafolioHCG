@@ -1,0 +1,553 @@
+/*
+   1. CONFIGURACIONES GENERALES Y BASE
+    */
+html {
+    scroll-behavior: smooth; /* Hace que al presionar un botón, la página baje con un deslizamiento fluido */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipo de letra moderno estilo sistema */
+    color: #c9d1d9; /* Color de texto gris claro principal */
+    background-color: #0d1117; /* Fondo oscuro (estilo modo oscuro de GitHub) */
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding-top: 80px; /* Margen superior para que el menú fijo de arriba no tape el contenido de la página */
+}
+
+/* 
+   2. MENÚ DE NAVEGACIÓN SUPERIOR (HEADER)*/
+header {
+    position: fixed; /* Mantiene el menú clavado en la parte superior aunque bajes la página */
+    top: 0;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    background-color: #161b22; /* Fondo un poco más claro que el fondo general */
+    border-bottom: 1px solid #30363d; /* Línea delgada gris para separar el menú del cuerpo */
+    z-index: 1000; /* Prioridad alta para que siempre flote por encima de los PDF e imágenes */
+}
+
+nav {
+    display: flex; /* Activa Flexbox para alinear elementos en filas o columnas */
+    justify-content: space-between; /* Manda el Logo a la izquierda y los Links a la derecha */
+    align-items: center; /* Centra verticalmente el logo y los textos */
+    max-width: 1200px; /* Ancho máximo permitido para que no se desparrame en pantallas gigantes */
+    margin: 0 auto; /* Centra el bloque entero en la pantalla */
+    padding: 15px 20px; /* Espaciado interno */
+}
+
+nav .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #58a6ff; /* Color azul brillante para resaltar el nombre del portafolio */
+}
+
+nav ul {
+    list-style: none; /* Quita los puntitos negros de las listas */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Pone los elementos de la lista uno al lado del otro */
+    gap: 20px; /* Separación fija entre cada enlace */
+}
+
+nav ul li a {
+    color: #c9d1d9;
+    text-decoration: none; /* Quita la línea de subrayado de los enlaces */
+    font-weight: 500;
+    transition: color 0.3s; /* Suaviza el cambio de color cuando pasas el mouse */
+}
+
+nav ul li a:hover {
+    color: #58a6ff; /* Cambia a azul cuando el usuario pasa el cursor por encima */
+}
+
+/*3. NUEVA SECCIÓN DE CATEGORÍAS (BOTONES)*/
+.categorias-container {
+    max-width: 1200px;
+    margin: 30px auto 10px auto; /* Centra el bloque y le da espacio arriba y abajo */
+    padding: 0 20px;
+}
+
+.categorias-titulo {
+    font-size: 1rem;
+    color: #8b949e; /* Color gris suave para el texto indicativo */
+    margin-bottom: 12px;
+}
+
+.categorias-botones {
+    display: flex; /* Alinea los botones uno al lado del otro */
+    gap: 15px; /* Espacio de separación entre los botones */
+    flex-wrap: wrap; /* Si la pantalla es muy pequeña, baja los botones automáticamente */
+}
+
+.btn-cat {
+    display: inline-block;
+    background-color: #21262d; /* Fondo gris oscuro de botón */
+    color: #c9d1d9; /* Texto claro */
+    padding: 10px 20px; /* Tamaño del botón */
+    text-decoration: none; /* Quita el subrayado morado por defecto de los links */
+    border: 1px solid #30363d; /* Borde sutil */
+    border-radius: 20px; /* Bordes muy redondeados tipo píldora/cápsula */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Transición suave para todos los efectos visuales */
+}
+
+.btn-cat:hover {
+    background-color: #58a6ff; /* El fondo cambia a azul brillante */
+    color: #0d1117; /* El texto se vuelve oscuro para hacer contraste */
+    border-color: #58a6ff;
+    transform: translateY(-2px); /* Pequeño efecto animado que sube el botón 2 píxeles */
+}
+
+/* Contenedor que encierra todos los laboratorios de una categoría */
+.seccion-categoria {
+    scroll-margin-top: 90px; /* Crucial: Al usar el scroll automático, evita que el menú fijo tape el contenido */
+    padding-top: 10px;
+}
+
+/* 4. SECCIONES DE ASIGNACIONES (PORTAFOLIO) */
+.seccion-porta {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    display: flex; /* Divide la sección en dos partes: info a la izquierda, visualización a la derecha */
+    gap: 40px; /* Espacio de separación entre la info y el recuadro del PDF */
+    border-bottom: 1px solid #21262d; /* Línea de separación inferior entre laboratorios */
+    align-items: center; /* Alinea al centro de forma vertical */
+    flex-wrap: wrap; /* Si el espacio no da (en celulares), pone el PDF debajo del texto */
+}
+
+.informacion {
+    flex: 1; /* Toma la mitad del espacio disponible */
+    min-width: 300px; /* En pantallas pequeñas no se encoge más de 300px */
+}
+
+.informacion h2 {
+    color: #f0f6fc; /* Color blanco brillante para los títulos de laboratorios */
+    margin-top: 0;
+}
+
+.informacion p {
+    line-height: 1.6; /* Da más espacio entre líneas de texto para que sea fácil de leer */
+    color: #8b949e;
+}
+
+/* Contenedor del visualizador de PDF (iframe) */
+.visualizacion {
+    flex: 1; /* Toma la otra mitad del espacio disponible */
+    min-width: 450px; /* Evita que el PDF se vea muy aplastado */
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px; /* Bordes ligeramente suavizados */
+    overflow: hidden; /* Corta cualquier cosa del PDF que intente salirse de las esquinas redondeadas */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5); /* Sombra negra difuminada para darle profundidad */
+}
+
+/* 5. BOTONES DE ACCIÓN (VER IMAGEN) */
+.btn {
+    display: inline-block;
+    background-color: #238636; /* Color verde (estilo botón de guardar en GitHub) */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none; /* Elimina subrayado */
+    border-radius: 6px; /* Esquinas redondeadas */
+    font-weight: 500;
+    margin-top: 15px;
+    transition: background-color 0.3s; /* Transición al cambiar de color verde */
+}
+
+.btn:hover {
+    background-color: #2ea043; /* Verde más claro y brillante al pasar el mouse */
+}
+
+/* 6. PIE DE PÁGINA (FOOTER) */
+footer {
+    text-align: center; /* Centra el texto de copyright */
+    padding: 20px;
+    color: #8b949e;
+    font-size: 0.9rem;
+    border-top: 1px solid #21262d; /* Línea superior divisoria */
+}
+
+/* ==========================================
+   7. DISEÑO MEJORADO DE PORTADA INSTITUCIONAL
+   ========================================== */
+.portada-institucional {
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #33a6bd; /* Fondo blanco de hoja formal */
+    color: #000000; /* Texto oscuro para la presentación */
+    padding: 50px;
+    border-radius: 12px; /* Bordes ligeramente más modernos */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25); /* Sombra difuminada de alta calidad */
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Encabezado en 3 Columnas */
+.portada-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.portada-col-logo {
+    width: 15%;
+}
+
+.alinear-izquierda { text-align: left; }
+.alinear-derecha { text-align: right; }
+
+.logo-portada-img {
+    width: 90px;
+    height: auto;
+    display: inline-block;
+}
+
+/* Tipografía de los Títulos */
+.portada-titulos {
+    width: 70%;
+    text-align: center;
+}
+
+.portada-titulos h1 {
+    font-size: 1.25rem;
+    margin: 0 0 4px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+}
+
+.portada-titulos h2 {
+    font-size: 1.1rem;
+    margin: 0 0 4px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+}
+
+.portada-titulos h3 {
+    font-size: 1rem;
+    margin: 0 0 12px 0;
+    font-weight: normal;
+    text-align: center;
+    color: #000000;
+}
+
+.portada-titulos .carrera {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin: 4px 0;
+    text-align: center;
+    color: #000000;
+}
+
+.portada-titulos .asignatura {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 12px 0 0 0;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+/* Cuerpo Central */
+.portada-contenido {
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.tipo-entrega {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 35px;
+    color: #000000;
+}
+
+.portada-detalles {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+/* Elementos Internos Estilizados */
+.subtitulo-portada {
+    margin: 8px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    font-size: 1.05rem;
+}
+
+.integrante-item {
+    margin: 6px 0;
+    text-align: center;
+    color: #000000;
+    font-size: 1.05rem;
+}
+
+.integrante-item span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.nombre-profesor {
+    margin: 6px 0;
+    text-align: center;
+    color: #000000;
+    font-size: 1.05rem;
+}
+
+.fecha-portada {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    color: #000000;
+    font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   Estilos Especiales para la Sección de Conclusiones
+   ========================================================================== */
+
+/* Contenedor principal de la sección */
+.clase-conclusiones {
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    flex-direction: column; /* Alinea los textos de arriba hacia abajo */
+    align-items: flex-start;
+}
+
+.informacion-conclusiones {
+    width: 100%;
+    max-width: 850px; /* Limita el ancho de lectura óptimo */
+    margin: 0 auto;   /* Centra el bloque de texto */
+}
+
+/* Títulos elegantes */
+.informacion-conclusiones h1 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    font-weight: 700;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Línea decorativa vertical junto al título principal */
+.informacion-conclusiones h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;
+    width: 5px;
+    background-color: #0056b3; /* Color acento (puedes cambiarlo al de tu portafolio) */
+    border-radius: 4px;
+}
+
+.informacion-conclusiones h2 {
+    font-size: 1.2rem;
+    color: #666666;
+    margin-bottom: 35px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Espaciado y maquetación de los párrafos */
+.bloque-parrafos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio uniforme entre cada párrafo */
+}
+
+.bloque-parrafos p {
+    font-size: 1.1rem;
+    line-height: 1.75; /* Incrementa el espacio entre líneas para mejor lectura */
+    color: #333333;
+    text-align: justify; /* Justifica el texto para mantener alineación limpia */
+    margin: 0;
+}
+
+/* Estilo opcional: Resaltar levemente el primer párrafo */
+.bloque-parrafos p:first-child {
+    font-size: 1.15rem;
+    color: #111111;
+    font-weight: 500;
+}
+
+
+/* ==========================================================================
+   Estilos Especiales para la Sección de Material de Apoyo (Módulo 2)
+   ========================================================================== */
+clase-material {
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column !important;
+    align-items: stretch;
+}
+
+.informacion-material h2 {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.descripcion-material {
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 25px;
+}
+
+.contenedor-interactivo-material {
+    display: flex;
+    gap: 25px;
+    min-height: 600px;
+}
+
+/* Ocultar los inputs de control */
+.contenedor-interactivo-material input[type="radio"] {
+    display: none;
+}
+
+/* Listado de botones / pestañas */
+.lista-documentos {
+    flex: 0 0 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tab-item {
+    padding: 14px 18px;
+    background: #f4f6f9;
+    color: #495057;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-left: 4px solid transparent;
+}
+
+.tab-item:hover {
+    background: #e9ecef;
+    color: #000000;
+}
+
+/* Visor del PDF */
+.visualizacion-material {
+    flex: 1;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    position: relative;
+}
+
+.iframe-wrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.iframe-wrapper iframe {
+    width: 100%;
+    height: 600px;
+    display: block;
+}
+
+/* ==========================================================================
+   Lógica de Activación y Muestra Dinámica (CSS Puro)
+   ========================================================================== */
+
+/* --- MÓDULO 1: KRITA (1 al 5) --- */
+#kr-pdf1:checked ~ .lista-documentos label[for="kr-pdf1"],
+#kr-pdf2:checked ~ .lista-documentos label[for="kr-pdf2"],
+#kr-pdf3:checked ~ .lista-documentos label[for="kr-pdf3"],
+#kr-pdf4:checked ~ .lista-documentos label[for="kr-pdf4"],
+#kr-pdf5:checked ~ .lista-documentos label[for="kr-pdf5"] {
+    background: #e4effa; color: #0056b3; border-left-color: #0056b3; font-weight: 600;
+}
+#kr-pdf1:checked ~ .visualizacion-material .content-kr-pdf1,
+#kr-pdf2:checked ~ .visualizacion-material .content-kr-pdf2,
+#kr-pdf3:checked ~ .visualizacion-material .content-kr-pdf3,
+#kr-pdf4:checked ~ .visualizacion-material .content-kr-pdf4,
+#kr-pdf5:checked ~ .visualizacion-material .content-kr-pdf5 {
+    display: block;
+}
+
+/* --- MÓDULO 2: OPENGL (1 al 10) --- */
+#gl-pdf1:checked ~ .lista-documentos label[for="gl-pdf1"],
+#gl-pdf2:checked ~ .lista-documentos label[for="gl-pdf2"],
+#gl-pdf3:checked ~ .lista-documentos label[for="gl-pdf3"],
+#gl-pdf4:checked ~ .lista-documentos label[for="gl-pdf4"],
+#gl-pdf5:checked ~ .lista-documentos label[for="gl-pdf5"],
+#gl-pdf6:checked ~ .lista-documentos label[for="gl-pdf6"],
+#gl-pdf7:checked ~ .lista-documentos label[for="gl-pdf7"],
+#gl-pdf8:checked ~ .lista-documentos label[for="gl-pdf8"],
+#gl-pdf9:checked ~ .lista-documentos label[for="gl-pdf9"],
+#gl-pdf10:checked ~ .lista-documentos label[for="gl-pdf10"] {
+    background: #e4effa; color: #0056b3; border-left-color: #0056b3; font-weight: 600;
+}
+#gl-pdf1:checked ~ .visualizacion-material .content-gl-pdf1,
+#gl-pdf2:checked ~ .visualizacion-material .content-gl-pdf2,
+#gl-pdf3:checked ~ .visualizacion-material .content-gl-pdf3,
+#gl-pdf4:checked ~ .visualizacion-material .content-gl-pdf4,
+#gl-pdf5:checked ~ .visualizacion-material .content-gl-pdf5,
+#gl-pdf6:checked ~ .visualizacion-material .content-gl-pdf6,
+#gl-pdf7:checked ~ .visualizacion-material .content-gl-pdf7,
+#gl-pdf8:checked ~ .visualizacion-material .content-gl-pdf8,
+#gl-pdf9:checked ~ .visualizacion-material .content-gl-pdf9,
+#gl-pdf10:checked ~ .visualizacion-material .content-gl-pdf10 {
+    display: block;
+}
+
+/* --- MÓDULO 3: BLENDER (1 al 8) --- */
+#bl-pdf1:checked ~ .lista-documentos label[for="bl-pdf1"],
+#bl-pdf2:checked ~ .lista-documentos label[for="bl-pdf2"],
+#bl-pdf3:checked ~ .lista-documentos label[for="bl-pdf3"],
+#bl-pdf4:checked ~ .lista-documentos label[for="bl-pdf4"],
+#bl-pdf5:checked ~ .lista-documentos label[for="bl-pdf5"],
+#bl-pdf6:checked ~ .lista-documentos label[for="bl-pdf6"],
+#bl-pdf7:checked ~ .lista-documentos label[for="bl-pdf7"],
+#bl-pdf8:checked ~ .lista-documentos label[for="bl-pdf8"] {
+    background: #e4effa; color: #0056b3; border-left-color: #0056b3; font-weight: 600;
+}
+#bl-pdf1:checked ~ .visualizacion-material .content-bl-pdf1,
+#bl-pdf2:checked ~ .visualizacion-material .content-bl-pdf2,
+#bl-pdf3:checked ~ .visualizacion-material .content-bl-pdf3,
+#bl-pdf4:checked ~ .visualizacion-material .content-bl-pdf4,
+#bl-pdf5:checked ~ .visualizacion-material .content-bl-pdf5,
+#bl-pdf6:checked ~ .visualizacion-material .content-bl-pdf6,
+#bl-pdf7:checked ~ .visualizacion-material .content-bl-pdf7,
+#bl-pdf8:checked ~ .visualizacion-material .content-bl-pdf8 {
+    display: block;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    .contenedor-interactivo-material {
+        flex-direction: column;
+    }
+    .lista-documentos {
+        flex: none;
+        width: 100%;
+    }
+}

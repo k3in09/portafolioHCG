@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio HCG - Mis Asignaciones</title>
+    <link rel="stylesheet" href="porta.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Portafolio HCG</div>
+            <ul>
+                <li><a href="#" id="btn-mostrar-todo">Inicio / Todo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <div class="categorias-container">
+            <p class="categorias-titulo">Filtrar por categoría:</p>
+            <div class="categorias-botones">
+                <button class="btn-cat" data-categoria="presentacion">Presentacion</button>
+                <button class="btn-cat" data-categoria="material">Meterial</button>
+                <button class="btn-cat active" data-categoria="todos">Todos</button>
+                <button class="btn-cat" data-categoria="grupal">Laboratorios Grupales</button>
+                <button class="btn-cat" data-categoria="individual">Laboratorios Individuales</button>
+                <button class="btn-cat" data-categoria="taller">Talleres</button>
+                <button class="btn-cat" data-categoria="parcial">Parciales</button>
+                <button class="btn-cat" data-categoria="proyecto">Proyectos</button>
+                <button class="btn-cat" data-categoria="investigacion">Investigación</button>
+                <button class="btn-cat" data-categoria="conclusiones">Conclusiones</button>
+
+            </div>
+        </div>
+        
+        <div id="contenedor-asignaciones">
+
+             <!-- Portada -->
+
+            <section class="portada-institucional seccion-porta clase-presentacion" style="display: none;">
+                
+                <div class="portada-encabezado">
+                    <div class="portada-col-logo alinear-izquierda">
+                        <img src="Talleres/logo_utp.jpg" alt="Logo UTP" class="logo-portada-img">
+                    </div>
+                    
+                    <div class="portada-titulos">
+                        <h1>UNIVERSIDAD TECNOLÓGICA DE PANAMÁ</h1>
+                        <h2>FACULTAD DE INGENIERÍA DE SISTEMAS COMPUTACIONALES</h2>
+                        <h3>DEPARTAMENTO DE COMPUTACIÓN Y SIMULACIÓN DE SISTEMAS</h3>
+                        <p class="carrera">CARRERA LICENCIATURA EN INGENIERÍA DE SISTEMAS Y COMPUTACIÓN</p>
+                        <p class="asignatura">HERRAMIENTAS DE COMPUTACIÓN GRÁFICA</p>
+                    </div>
+                    
+                    <div class="portada-col-logo alinear-derecha">
+                        <img src="Talleres/logo_fisc.jpg" alt="Logo FISC" class="logo-portada-img">
+                    </div>
+                </div>
+
+                <div class="portada-contenido">
+                    <h4 class="tipo-entrega">PORTAFOLIO DIGITAL</h4>
+                    
+                    <div class="portada-detalles">
+                        <p class="subtitulo-portada">Integrantes:</p>
+                        
+                        <p class="integrante-item">Rodríguez, Lysmarie <span>8-1010-386</span></p>
+                        <p class="integrante-item">Moreno, Dereck <span>8-1004-142</span></p>
+                        <p class="integrante-item">Campine, Kevin <span>8-1028-1050</span></p>
+                        <p class="integrante-item">Aparicio, Cristhofer <span>9-765-102</span></p>
+                        <p class="integrante-item">Chauhan, Gulam <span>8-1043-2255</span></p>
+                        
+                        <br>
+                        <p class="subtitulo-portada">Profesor:</p>
+                        <p class="nombre-profesor">Ing. Samuel Jiménez</p>
+                        
+                        <p class="fecha-portada">2026</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portada -->
+            <section class="seccion-porta clase-material">
+                <div class="informacion-material">
+                    <h2>Módulo 1: Krita</h2>
+                    <p class="descripcion-material">Selecciona un documento para visualizar el material teórico y práctico de este módulo:</p>
+                </div>
+                
+                <div class="contenedor-interactivo-material">
+                    <input type="radio" name="krita-selector" id="kr-pdf1" checked>
+                    <input type="radio" name="krita-selector" id="kr-pdf2">
+                    <input type="radio" name="krita-selector" id="kr-pdf3">
+                    <input type="radio" name="krita-selector" id="kr-pdf4">
+                    <input type="radio" name="krita-selector" id="kr-pdf5">
+
+                    <div class="lista-documentos">
+                        <label for="kr-pdf1" class="tab-item">Transformación y Manipulación</label>
+                        <label for="kr-pdf2" class="tab-item">Práctica de Transformaciones</label>
+                        <label for="kr-pdf3" class="tab-item">Práctica de Algoritmo de Relleno</label>
+                        <label for="kr-pdf4" class="tab-item">Algoritmo Flood Fill</label>
+                        <label for="kr-pdf5" class="tab-item">Algoritmo Boundary Fill</label>
+                    </div>
+
+                    <div class="visualizacion-material">
+                        <div class="iframe-wrapper content-kr-pdf1">
+                            <iframe src="material de apoyo/modulo 2/Transformacion y manipulacion de objetos.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-kr-pdf2">
+                            <iframe src="material de apoyo/modulo 2/Practica de transformaciones.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-kr-pdf3">
+                            <iframe src="material de apoyo/modulo 2/Practica de algoritmo de relleno.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-kr-pdf4">
+                            <iframe src="material de apoyo/modulo 2/Algoritmo FLOOD FILL.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-kr-pdf5">
+                            <iframe src="material de apoyo/modulo 2/Algoritmo Boundary Fill.pdf" style="border: none;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion-porta clase-material">
+                <div class="informacion-material">
+                    <h2>Módulo 2: Open GL</h2>
+                    <p class="descripcion-material">Selecciona un documento para visualizar el material teórico y práctico de este módulo:</p>
+                </div>
+                
+                <div class="contenedor-interactivo-material">
+                    <input type="radio" name="opengl-selector" id="gl-pdf1" checked>
+                    <input type="radio" name="opengl-selector" id="gl-pdf2">
+                    <input type="radio" name="opengl-selector" id="gl-pdf3">
+                    <input type="radio" name="opengl-selector" id="gl-pdf4">
+                    <input type="radio" name="opengl-selector" id="gl-pdf5">
+                    <input type="radio" name="opengl-selector" id="gl-pdf6">
+                    <input type="radio" name="opengl-selector" id="gl-pdf7">
+                    <input type="radio" name="opengl-selector" id="gl-pdf8">
+                    <input type="radio" name="opengl-selector" id="gl-pdf9">
+                    <input type="radio" name="opengl-selector" id="gl-pdf10">
+
+                    <div class="lista-documentos">
+                        <label for="gl-pdf1" class="tab-item">Conceptos básicos de OpenGL</label>
+                        <label for="gl-pdf2" class="tab-item">Cp 2 Conceptos fundamentales openGL</label>
+                        <label for="gl-pdf3" class="tab-item">Cap 3 menú desplegable y transformaciones</label>
+                        <label for="gl-pdf4" class="tab-item">Cap 4</label>
+                        <label for="gl-pdf5" class="tab-item">Detalles de openGL</label>
+                        <label for="gl-pdf6" class="tab-item">GluOrtho2d</label>
+                        <label for="gl-pdf7" class="tab-item">Menú de OpenGL</label>
+                        <label for="gl-pdf8" class="tab-item">Resumen del capítulo 3</label>
+                        <label for="gl-pdf9" class="tab-item">Resumen del capítulo 4</label>
+                        <label for="gl-pdf10" class="tab-item">Texturas de OpenGL</label>
+                    </div>
+
+                    <div class="visualizacion-material">
+                        <div class="iframe-wrapper content-gl-pdf1">
+                            <iframe src="material de apoyo/modulo 3/1. Conceptos básicos de opengl .pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf2">
+                            <iframe src="material de apoyo/modulo 3/2. Capitulo 2 (Conceptos fundamentales de OpenGL).pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf3">
+                            <iframe src="material de apoyo/modulo 3/3.Capitulo 3. Menú desplegables y transformaciones.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf4">
+                            <iframe src="material de apoyo/modulo 3/4. capitulo 4.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf5">
+                            <iframe src="material de apoyo/modulo 3/Detalles de OpenGL.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf6">
+                            <iframe src="material de apoyo/modulo 3/GluOrtho2d.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf7">
+                            <iframe src="material de apoyo/modulo 3/Menú de OpenGl.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf8">
+                            <iframe src="material de apoyo/modulo 3/Resumen del capítulo 3.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf9">
+                            <iframe src="material de apoyo/modulo 3/Resumen del capítulo 4.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-gl-pdf10">
+                            <iframe src="material de apoyo/modulo 3/Textura en OpenGL.pdf" style="border: none;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion-porta clase-material">
+                <div class="informacion-material">
+                    <h2>Módulo 3: Blender</h2>
+                    <p class="descripcion-material">Selecciona un documento para visualizar el material teórico y práctico de este módulo:</p>
+                </div>
+                
+                <div class="contenedor-interactivo-material">
+                    <input type="radio" name="blender-selector" id="bl-pdf1" checked>
+                    <input type="radio" name="blender-selector" id="bl-pdf2">
+                    <input type="radio" name="blender-selector" id="bl-pdf3">
+                    <input type="radio" name="blender-selector" id="bl-pdf4">
+                    <input type="radio" name="blender-selector" id="bl-pdf5">
+                    <input type="radio" name="blender-selector" id="bl-pdf6">
+                    <input type="radio" name="blender-selector" id="bl-pdf7">
+                    <input type="radio" name="blender-selector" id="bl-pdf8">
+
+                    <div class="lista-documentos">
+                        <label for="bl-pdf1" class="tab-item">Conceptos básicos de blender</label>
+                        <label for="bl-pdf2" class="tab-item">Comandos de blender</label>
+                        <label for="bl-pdf3" class="tab-item">Creación de librero</label>
+                        <label for="bl-pdf4" class="tab-item">Dado de blender</label>
+                        <label for="bl-pdf5" class="tab-item">Imagen de referencia en blender</label>
+                        <label for="bl-pdf6" class="tab-item">Introducción a blender</label>
+                        <label for="bl-pdf7" class="tab-item">Lámpara de blender</label>
+                        <label for="bl-pdf8" class="tab-item">Modelado de un plato</label>
+                    </div>
+
+                    <div class="visualizacion-material">
+                        <div class="iframe-wrapper content-bl-pdf1">
+                            <iframe src="material de apoyo/curso blender/1. Conceptos básicos de Blender.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-bl-pdf2">
+                            <iframe src="material de apoyo/curso blender/Comandos en Blender.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-bl-pdf3">
+                            <iframe src="material de apoyo/curso blender/Creacion de librero.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-bl-pdf4">
+                            <iframe src="material de apoyo/curso blender/Dado en Blender.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-bl-pdf5">
+                            <iframe src="material de apoyo/curso blender/Imagen de referencia en blender.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-bl-pdf6">
+                            <iframe src="material de apoyo/curso blender/Introducción a Blender.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-bl-pdf7">
+                            <iframe src="material de apoyo/curso blender/Lampara en Blender.pdf" style="border: none;"></iframe>
+                        </div>
+                        <div class="iframe-wrapper content-bl-pdf8">
+                            <iframe src="material de apoyo/curso blender/Modelado de un Plato en Blender.pdf" style="border: none;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- tabrajos grupales 
+              labs -->
+            <section class="seccion-porta clase-grupal">
+                <div class="informacion">
+                    <h2>Laboratorio #1: Manejo de elementos gráficos en entornos digitales</h2>
+                    <p>Este laboratorio permitió comprender que el dominio de las herramientas básicas de Krita es un paso esencial para el desarrollo de proyectos gráficos profesionales.</p>
+                    <a href="lab1/Lab01.jpg.jpeg" target="_blank" class="btn">Imagen</a>
+                </div>
+                <div class="visualizacion">
+                    <iframe src="lab1/Laboratorio01.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+            </section>
+
+            <section class="seccion-porta clase-grupal">
+                <div class="informacion">
+                    <h2>Laboratorio #2: Manejo de elementos gráficos en entornos digitales</h2>
+                    <p>El presente laboratorio tiene como propósito fundamental introducir al estudiante en el proceso de vectorización digital de imágenes utilizando el software Krita.</p>
+                    <a href="LAB 2/lab02.jpg.jpeg" target="_blank" class="btn">Imagen</a> 
+                </div>
+                <div class="visualizacion">
+                    <iframe src="LAB 2/Laboratorio02.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+            </section>
+
+            <section class="seccion-porta clase-grupal">
+                <div class="informacion">
+                    <h2>Laboratorio #3: Manejo de elementos gráficos en entornos digitales</h2>
+                    <p>En este laboratorio se trabajó el manejo de elementos gráficos en entornos digitales utilizando Krita.</p>   
+                    <a href="LAB 3/Lab03.jpg.jpeg" target="_blank" class="btn">Imagen</a>
+                </div>
+                <div class="visualizacion">
+                    <iframe src="LAB 3/Laboratorio03.pdf" width="100%" height="500px" style="border: none;"></iframe> 
+                </div>
+            </section>
+
+             <section class="seccion-porta clase-grupal">
+                <div class="informacion">
+                    <h2>Laboratorio #4: Fundamentos de animación 2D</h2>
+                    <p>En este laboratorio se realizaron diferentes pruebas con programas básicos de OpenGL, modificando  comandos  relacionados  con  el  color,  la  proyección,  el  tamaño  y  la  posición  de  la ventana.</p>   
+                    <a href="LAB 4/lab4.txt" target="_blank" class="btn">codigo</a>
+                </div>
+                <div class="visualizacion">
+                    <iframe src="LAB 4/Laboratorio 4.pdf" width="100%" height="500px" style="border: none;"></iframe> 
+                </div>
+            </section>
+
+            <section class="seccion-porta clase-grupal">
+                <div class="informacion">
+                    <h2>Laboratoro #5: Fundamentos de animación 2D  </h2>
+                    <P>En el presente laboratorio se desarrollaron actividades relacionadas con el uso de primitivas básicas en OpenGL, con el propósito de comprender cómo se construyen figuras gráficas a partir de instrucciones y coordenadas.</P>
+                    <a href="LAB 5/Lab5.txt" target="_blank" class="btn">codigo</a>
+        
+                </div>
+                <div class="visualizacion">
+                    <iframe src="LAB 5/lab5.pdf" width="100%" height="500px" style="border: none;"></iframe>
+
+                </div>
+            </section>    
+
+            <section class ="seccion-porta clase-grupal">
+                <div class="informacion">
+                    <h2>Laboratorio #6: Fundamentos de animación 2D</h2>
+                    <p>En este laboratorio se desarrollaron diferentes ejercicios relacionados con los fundamentos de animación 2D  y  gráficos  por  computadora,  utilizando  transformaciones,  iluminación,  materiales,  movimiento  de objetos y control mediante teclado y ratón.</p>
+                    <a href="LAB 6/laboratorio 6.txt" target="_blank" class="btn">codigo</a>
+                
+                </div>
+
+                <div class="visualizacion">
+                    <iframe src="LAB 6/Lab6.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+            </section>
+
+             <!-- talleres -->
+            <section class="seccion-porta clase-taller">
+                <div class="informacion">
+                    <h2>taller 1:Herramientas gráficas</h2>
+                    <p>Taller en el que a traves de excel se desarrollaron algoritmos como el DDA,Bresenham y circunferencia.</p>
+                </div>
+                <div class="visualizacion">
+                    <iframe src="Talleres/Taller01.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+            </section>
+
+            <section class="seccion-porta clase-taller">
+                <div class="informacion">
+                    <h2>taller 2:Manejo de elementos gráficos en entornos digitales </h2>
+                    <p>Se aplicando la lógica del algoritmo de relleno y los conceptos de transformaciones  geométricas  vistos  en  clase.</p>
+                </div>
+                <div class="visualizacion">
+                    <iframe src="Talleres/TallerNo02.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+            </section>
+
+            <section class="seccion-porta clase-taller">
+                <div class="informacion">
+                    <h2>taller 3: Fundamentos de animación 2D</h2>
+                    <p>Se desarrollo con OpenGL el logo del grupo</p>
+                    <a href="Talleres/logotaller3.jpg" target="_blank" class="btn">logo</a>
+                </div>
+                <div class="visualizacion">
+                    <iframe src="Talleres/TallerNo03.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+            </section>
+
+             <section class="seccion-porta clase-taller">
+                <div class="informacion">
+                    <h2>taller 4:Fundamentos de Animacion 2D </h2>
+                    <p>Taller en el que se creo un paisaje y casa utilizando OpenGL y GLUT.</p>
+                </div>
+                <div class="visualizacion">
+                    <iframe src="Talleres/TallerNo04.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+            </section>
+
+            <section class="seccion-porta clase-taller">
+                <div class="informacion">
+                    <h2>taller 5:Fundamentos de animación 2D </h2>
+                    <p>Se creo un avion con diferente formas y el otro objetivo era animarlo.</p>
+                </div>
+
+                <div class="visualizacion">
+                    <iframe src="Talleres/TallerNo05.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+
+            </section>
+
+              <section class="seccion-porta clase-taller">
+                <div class="informacion">
+                    <h2>taller 6: Técnicas y herramientas para gráficos 3D  </h2>
+                    <p>Se desarrollo una imagen realizada con la herramienta blender en la que se creo una lampara con luz</p>
+                    <a href="Talleres/taller6.png" target="_blank" class="btn">imagen</a>
+                </div>
+
+                <div class="visualizacion">
+                    <iframe src="Talleres/TallerNo06.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+
+            </section>
+            
+                <!-- secciones de lab individuales-->
+                <!-- lys -->
+            <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Lysmarie Rodríguez</h1>
+                    <h2>laboratorio 7: Dado en Blender  </h2>
+                    <a href="lysmarie/LAB7/Lys_luz.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <img src="lysmarie/LAB7/lab7.png" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                </div>
+
+            </section>
+
+             <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Lysmarie Rodríguez</h1>
+                    <h2>laboratorio 8: Cafetera en Blender  </h2>
+                    <a href="lysmarie/LAB8/Lab8_Lys.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <img src="lysmarie/LAB8/lab8.jpg" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                </div>
+
+            </section>
+
+            <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Lysmarie Rodríguez</h1>
+                    <h2>laboratorio 9: mesa en blender  </h2>
+                    <a href="lysmarie/LAB9/Table.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <img src="lysmarie/LAB9/lab9.png" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                </div>
+
+            </section>
+
+                <!-- kevin -->
+             <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Kevin Campines</h1>
+                    <h2>laboratorio 7: Dado en Blender  </h2>
+                    <a href="Kevin/lab7/dado.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <img src="Kevin/lab7/dado.png" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                </div>
+
+            </section>
+
+            <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Kevin Campines</h1>
+                    <h2>laboratorio 8: Cafetera con blender  </h2>
+                    <a href="Kevin/lab8/lab8cafetera.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <video src="Kevin/lab8/cafetera.mp4" controls style="width: 100%; height: auto; display: block; background-color: #000;"></video>
+                </div>
+
+            </section>
+
+            <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Kevin Campines</h1>
+                    <h2>laboratorio 9: Mesa con blender  </h2>
+                    <a href="Kevin/lab9/lab9.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <video src="Kevin/lab9/0001-0100.mkv" controls style="width: 100%; height: auto; display: block; background-color: #000;"></video>
+                </div>
+
+            </section>
+
+            <!-- Christopher-->
+            <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Cristhofer Aparicio</h1>
+                    <h2>laboratorio 7: Dado con blender  </h2>
+                    <a href="christopher/laboratorio 7/laboratorio7.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <img src="christopher/laboratorio 7/lab7.png" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                </div>
+
+            </section>
+
+             <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Cristhofer Aparicio</h1>
+                    <h2>laboratorio 8: Cafetera con blender  </h2>
+                    <a href="christopher/laboratorio 8/lab8.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <img src="christopher/laboratorio 8/cafetera.png" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                </div>
+
+            </section>
+
+            <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Cristhofer Aparicio</h1>
+                    <h2>laboratorio 9: Mesa con blender  </h2>
+                    <a href="christopher/laboratorio 9/laboratorio 9.txt" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <video src="christopher/laboratorio 9/0001-0038-_1_.mp4" controls style="width: 100%; height: auto; display: block; background-color: #000;"></video>
+                </div>
+
+            </section>
+
+            <!-- Dereck-->
+             <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Dereck Moreno</h1>
+                    <h2>laboratorio 7: Dado con blender  </h2>
+                    <a href="Dereck/lab/Lab07.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <img src="Dereck/lab/lab7.png" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                </div>
+
+            </section>
+
+             <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Dereck Moreno</h1>
+                    <h2>laboratorio 8: Cafetera con blender  </h2>
+                    <a href="Dereck/lab/Lab08.blend1" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                   <video src="Dereck/lab/Lab08.mp4" controls style="width: 100%; height: auto; display: block; background-color: #000;"></video>
+                </div>
+
+            </section>
+
+            <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Dereck Moreno</h1>
+                    <h2>laboratorio 9: Mesa con blender  </h2>
+                    <a href="Dereck/lab/Lab09.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <video src="Dereck/lab/Lab09.mkv" controls style="width: 100%; height: auto; display: block; background-color: #000;"></video>
+                </div>
+
+
+            </section>
+
+             <!-- Gulam -->
+          
+             <section class="seccion-porta clase-individual">
+                <div class="informacion">
+                    <h1>Gulam Chauhan</h1>
+                    <h2>laboratorio 8: Cafetera con blender  </h2>
+                    <a href="Gulam/lab/Lab8.blend" target="_blank" class="btn">archivo de blender</a>
+                </div>
+
+                <div class="visualizacion">
+                    <video src="Gulam/lab/cafetetagulam.mp4" controls style="width: 100%; height: auto; display: block; background-color: #000;" ></video>
+                </div>
+
+            </section>
+                
+             <!-- seccion de parciales -->
+               <!-- lys -->
+
+                <section class="seccion-porta clase-parcial">
+                    <div class="informacion">
+                        <h1>lysmarie Rodrígues</h1>
+                        <h2>parcial 1: Krita  </h2>
+                        <a href="lysmarie/parciales/Parcial 1 - Lysmarie Rodriguez.kra" target="_blank" class="btn">archivo de Krita</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <img src="lysmarie/parciales/Parcial 1 - Lysmarie Rodriguezz.jpg" alt="krita img" style="width: 100%; height: auto; display: block; border: none;">
+                    </div>
+                </section>
+
+                <section class="seccion-porta clase-parcial">
+
+                    <div class="informacion">
+                        <h1>lysmarie Rodrígues</h1>
+                        <h2>parcial 2:OpenGL  </h2>
+                        <a href="lysmarie/parciales/Parcial 2/" target="_blank" class="btn">archivo de OpenGL</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <iframe src="lysmarie/parciales/Parcial 2 PedroM_LysmarieR.txt" width="100%" height="500px" style="border: none;"></iframe>>
+                    </div>
+                </section>
+               
+             <!-- Kevin -->
+
+                <section class="seccion-porta clase-parcial">
+                    <div class="informacion">
+                        <h1>Kevin Campines</h1>
+                        <h2>parcial 1: Krita  </h2>
+                        <a href="Kevin/parcial/parcial 1.112replica (1).kra" target="_blank" class="btn">archivo de Krita</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <img src="Kevin/parcial/parcial 1.11replica (1).jpg" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                        <iframe src="Kevin/parcial/parcial1k.pdf" width="100%" height="500px" style="border: noce;"></iframe>
+                    </div>
+                </section>
+
+                <section class="seccion-porta clase-parcial">
+
+                    <div class="informacion">
+                        <h1>Kevin Campines</h1>
+                        <h2>parcial 2:OpenGL  </h2>
+                        <a href="Dereck/parciales/Parcial 2.zip" target="_blank" class="btn">archivo de OpenGL Grupo Dereck</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <iframe src="Kevin/parcial/parcial 2.pdf" width="100%" height="500px" style="border: none;"></iframe>>
+                    </div>
+                </section>
+
+                <section class="seccion-porta clase-parcial">
+
+                    <div class="informacion">
+                        <h1>Kevin Campines/Dereck Moreno</h1>
+                        <h2>parcial 3: blender  </h2>
+                        <a href="Kevin/parcial/parcial31.blend" target="_blank" class="btn">archivo de Blender: Grupo Dereck</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <video src="Kevin/parcial/0001-0142.mkv" controls style="width: 100%; height: auto; display: block; background-color: #000;"></video>>
+                    </div>
+                </section>
+             
+             <!-- Christhopher-->
+
+                <section class="seccion-porta clase-parcial">
+                    <div class="informacion">
+                        <h1>Cristhofer Aparicio</h1>
+                        <h2>parcial 1: Krita  </h2>
+                        <a href="christopher/PARCIALES/parcial 1.kra" target="_blank" class="btn">archivo de Krita</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <img src="christopher/PARCIALES/parcial 1.jpg" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                        <iframe src="christopher/PARCIALES/parcial 1.pdf" alt="Render Blender" width="100%" height="500px" style="border: none;"></iframe>>
+                    </div>
+
+                </section>
+
+                <section class="seccion-porta clase-parcial">
+
+                    <div class="informacion">
+                        <h1>Cristhofer Aparicio</h1>
+                        <h2>parcial 2:OpenGL  </h2>
+                        <a href="christopher/PARCIALES/Parcial2.zip" target="_blank" class="btn">archivo de OpenGL/Grupo Gulam</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <iframe src="christopher/PARCIALES/parcial 2.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                    </div>
+                </section>
+
+                <section class="seccion-porta clase-parcial">
+
+                    <div class="informacion">
+                        <h1>Cristhofer Aparicio/Gulam Chauhan</h1>
+                        <h2>parcial 3: blender  </h2>
+                        <a href="christopher/PARCIALES/parcial 3/parcial3.blend" target="_blank" class="btn">archivo de Blender/Grupo Gulam</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <video src="christopher/PARCIALES/parcial 3/0002-0112.mkv" controls style="width: 100%; height: auto; display: block; background-color: #000;"></video>
+                        <iframe src="christopher/PARCIALES/parcial 3/Parcial3.pdf" alt="render" width="100%" height="500px" style="border: none;"></iframe>
+                    </div>
+                </section>
+             
+             <!-- Dereck -->
+
+                <section class="seccion-porta clase-parcial">
+                    <div class="informacion">
+                        <h1>Dereck Moreno</h1>
+                        <h2>parcial 1: Krita  </h2>
+                        <a href="" target="_blank" class="btn">archivo de Krita</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <img src="Dereck/parciales/parcial1.jpg" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                        <iframe src="Dereck/parciales/Parcial1.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                    </div>
+                </section>
+
+                
+                <section class="seccion-porta clase-parcial">
+
+                    <div class="informacion">
+                        <h1>Dereck Moreno</h1>
+                        <h2>parcial 2:OpenGL  </h2>
+                        <a href="Dereck/parciales/Parcial 2.zip" target="_blank" class="btn">archivo de OpenGL</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <iframe src="Dereck/parciales/Parcial2.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                    </div>
+                </section>
+
+
+             <!-- Gulam -->
+
+                <section class="seccion-porta clase-parcial">
+                    <div class="informacion">
+                        <h1>Gulam Chauhan</h1>
+                        <h2>parcial 1: Krita  </h2>
+                        <a href="" target="_blank" class="btn">archivo de Krita</a>
+                    </div>
+
+                    <div class="visualizacion">
+                        <iframe src="Gulam/parciales/gulampracial1.pdf" width="100%" height="500px" style="border: none;" ></iframe>">
+                    </div>
+
+                </section>
+
+            <!-- Proyectos -->
+
+            <section class="seccion-porta clase-proyecto">
+                <div class="informacion">
+                    <h1>Proyecto #1</h1>
+                    <h2> Este proyecto se elaboró en la herramienta Krita en la que se creo un paisaje.</h2>
+                    <a href="proyecto/Proyecto01/Proyecto1.kra" target="_blank" class="btn">archivo Krita</a>
+
+                </div>
+
+                <div class="visualizacion">
+                    <img src="proyecto/Proyecto01/Proyecto1.jpeg" alt="Render Blender" style="width: 100%; height: auto; display: block; border: none;">
+                    <iframe src="proyecto/Proyecto01/Proyecto01.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+
+            </section>
+
+            
+            <section class="seccion-porta clase-proyecto">
+                <div class="informacion">
+                    <h1>Proyecto #2</h1>
+                    <h2> Este proyecto se elaboró en la herramienta OpenGl en la que se creo una via con carros y con la posibilidad de mover a uno en cualquier direccion arriba,abajo,derecha e izquierda.</h2>
+                    <a href="proyecto/Proyecto02.zip" target="_blank" class="btn">archivo OpenGL</a>
+
+                </div>
+
+                <div class="visualizacion">
+                    <video src="proyecto/proyec2.mp4" controls style ="width: 100%; height: auto; display: block; background-color: #000;"></video>
+                    <iframe src="proyecto/Proyecto 2.pdf" width="100%" height="500px" style="border: none;"></iframe>
+                </div>
+
+            </section>
+
+            <section class="seccion-porta clase-investigacion">
+                <div class="informacion">
+                    <h1>investigacion #1</h1>
+                    <h2> En esta investigacion se desarrollo sobre las diferentes herraminetas gráficas.</h2>
+                </div>
+
+                <div class="visualizacion"></div>
+
+                <iframe src="investigacion/Trabajo - Herramientas graficas..pdf" width="100%" height="500px" style="border: none;"></iframe>
+
+            </section>
+
+            <section class="seccion-porta clase-conclusiones">
+                <div class="informacion-conclusiones">
+                    <h1>Conclusiones del Curso</h1>
+                    <h2>Herramientas de Computación Gráfica</h2>
+                    
+                    <div class="bloque-parrafos">
+
+                        <h2>Lysmarie Rodríguez</h2>
+                        <p>El desarrollo de este curso de HCG me permitió consolidar una base sólida tanto teórica como práctica en computación gráfica. El aprendizaje comenzó desde los fundamentos matemáticos con algoritmos  como DDA y Bresenham, y se extendió hasta el uso de software profesional como Krita y Blender. Fue una experiencia sumamente enriquecedora aprender a pasar de figuras bidimensionales a entornos tridimensionales complejos, asimilando conceptos clave como la manipulación de vértices y caras.</p>
+                        <h2>Kevin Campines</h2>
+                        <p>El aprendenizaje en HCG fue buen entender cómo funcionan los algoritmos de líneas y circunferencias por dentro, para luego aplicar herramientas potentes como OpenGL y Blender. La evolución de crear formas simples en 2D a estructurar objetos en 3D mediante vértices y caras, sumado al aprendizaje de simulaciones físicas y animación para video</p>
+                        <h2>Dereck Moreno</h2>
+                        <p>la materia de HCG ha sido una excelente experiencia de aprendizaje. Destaco especialmente el uso de tecnologías como OpenGL y Blender. Comprender la lógica detrás del modelado 3D —el comportamiento de las caras, junto con las técnicas de animación física, ademas estas herramientas nos dan la posibilidad de realizar diferentes proyectospor la cantidad de cosas que incoorporan."</p>
+                        <h2>Christofer Aparicio</h2>
+                        <p>HCG fue una experiencia clave para mi formación, donde combiné la teoría matemática de algoritmos gráficos con la práctica en herramientas como Blender y OpenGL. Aprendí el flujo completo de trabajo digital: desde trazar líneas en 2D hasta modelar en 3D manipulando vértices y caras. Finalmente, la integración de físicas a los objetos.</p>
+                        <h2> Gulam Chauhan</h2>
+                        <p>HCG fue una buena experiencia donde puede aprender sobre los diferentes algoritmos como DDA,Breseham,Circunferencia entre otro, tambien las diferentes herramientas de computacion grafica krita, openGL, Blender. pude aprender como hacer formas en 2d y 3d ademas de como trabajar con vertices, caras etc y como aprender a aplicarle animaciones fisicas para crear video.</p>
+                    </div>
+                </div>
+            </section>
+
+            
+            
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Portafolio de Herramientas de Computación Gráfica</p>
+    </footer>
+
+    <script>
+        const botones = document.querySelectorAll('.btn-cat');
+        const secciones = document.querySelectorAll('.seccion-porta');
+        const btnInicio = document.getElementById('btn-mostrar-todo');
+
+       // Función encargada de filtrar las secciones (Modificada para ocultar portada en "Todos")
+        function filtrarCategoria(categoriaObjetivo) {
+            secciones.forEach(seccion => {
+                if (categoriaObjetivo === 'todos') {
+                    // Si el usuario elige "todos", mostramos todo MENOS la portada de presentación
+                    if (seccion.classList.contains('clase-presentacion')) {
+                        seccion.style.display = 'none';
+                    } else {
+                        seccion.style.display = 'flex';
+                    }
+                } else if (seccion.classList.contains('clase-' + categoriaObjetivo)) {
+                    seccion.style.display = 'flex'; // Muestra si coincide exactamente (ej: presentación o taller)
+                } else {
+                    seccion.style.display = 'none'; // La oculta en los demás casos
+                }
+            });
+        }
+
+        // Detecta el clic en cualquiera de los botones de categorías
+        botones.forEach(boton => {
+            boton.addEventListener('click', () => {
+                // Cambia el diseño estético del botón activo
+                botones.forEach(b => b.classList.remove('active'));
+                boton.classList.add('active');
+
+                // Filtra el contenido
+                const categoria = boton.getAttribute('data-categoria');
+                filtrarCategoria(categoria);
+            });
+        });
+
+        // Enlace rápido del menú superior para reiniciar el filtro
+        btnInicio.addEventListener('click', (e) => {
+            e.preventDefault();
+            botones.forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-categoria="todos"]').classList.add('active');
+            filtrarCategoria('todos');
+        });
+    </script>
+
+</body>
+</html>

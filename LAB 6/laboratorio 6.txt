@@ -1,0 +1,399 @@
+laboratorio 6
+#include <windows.h>
+#include <GL/glut.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h> // Para rand()
+
+// Variables globales corregidas para la escala gluOrtho2D(0, 1000, 0, 600)
+float posX = 150.0f;  // El carro inicia a la izquierda sobre la carretera
+float posY = 65.0f;   // Altura inicial adecuada para la carretera
+int opcion = 1;       // 1=Paisaje, 2=Carro, 3=Identificación
+float colorShift = 0.0f;
+float angulo = 0.0f;
+
+// ---------------- DIBUJAR TEXTO ----------------
+void drawText(float x, float y, float scale, const char* text)
+{
+    glPushMatrix();
+    glTranslatef(x, y, 0);
+    glScalef(scale, scale, 1);
+    for (int i = 0; i < strlen(text); i++)
+    {
+        glutStrokeCharacter(GLUT_STROKE_ROMAN, text[i]);
+    }
+    glPopMatrix();
+}
+
+// ---------------- MARCOS ----------------
+void drawOuterFrame()
+{
+    glColor3f(1, 1, 1);
+    glLineWidth(4);
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(20, 20); glVertex2f(980, 20);
+        glVertex2f(980, 580); glVertex2f(20, 580);
+    glEnd();
+
+    glLineWidth(2);
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(40, 40); glVertex2f(960, 40);
+        glVertex2f(960, 560); glVertex2f(40, 560);
+    glEnd();
+}
+
+void drawColorFrame()
+{
+    glLineWidth(5);
+    glBegin(GL_LINE_LOOP);
+        glColor3f(1, 0, 1); glVertex2f(180, 190);
+        glColor3f(0, 1, 1); glVertex2f(820, 190);
+        glColor3f(1, 1, 0); glVertex2f(820, 390);
+        glColor3f(0, 1, 0); glVertex2f(180, 390);
+    glEnd();
+
+    glLineWidth(2);
+    glBegin(GL_LINE_LOOP);
+        glColor3f(0, 1, 1); glVertex2f(200, 210);
+        glColor3f(1, 0, 0); glVertex2f(800, 210);
+        glColor3f(1, 1, 0); glVertex2f(800, 370);
+        glColor3f(1, 0, 1); glVertex2f(200, 370);
+    glEnd();
+}
+
+// ---------------- FUNCIONES AUXILIRES ----------------
+void dibujarCirculo(float cx, float cy, float r) {
+    glBegin(GL_POLYGON);
+    for (int i = 0; i < 100; i++) {
+        float ang = 2.0f * 3.1416f * i / 100;
+        float x = r * cos(ang);
+        float y = r * sin(ang);
+        glVertex2f(x + cx, y + cy);
+    }
+    glEnd();
+}
+
+// ---------------- CARRO ----------------
+void carro()
+{
+    glPushMatrix();
+
+    // Las transformaciones se aplican en el orden correcto
+    glTranslatef(posX, posY, 0);
+    glRotatef(angulo, 0, 0, 1);
+
+    // Carrocería principal (rectángulo inferior)
+    glColor3f(0.9f, 0.2f, 0.2f);
+    glBegin(GL_POLYGON);
+        glVertex2f(-80, 0);
+        glVertex2f(80, 0);
+        glVertex2f(80, 40);
+        glVertex2f(-80, 40);
+    glEnd();
+
+    // Techo / Cabina (Trapecio superior)
+    glBegin(GL_POLYGON);
+        glVertex2f(-50, 40);
+        glVertex2f(40, 40);
+        glVertex2f(20, 75);
+        glVertex2f(-25, 75);
+    glEnd();
+
+    // Ventana trasera
+    glColor3f(0.7f, 0.9f, 1.0f);
+    glBegin(GL_POLYGON);
+        glVertex2f(-40, 45);
+        glVertex2f(-5, 45);
+        glVertex2f(-5, 70);
+        glVertex2f(-20, 70);
+    glEnd();
+
+    // Ventana delantera
+    glBegin(GL_POLYGON);
+        glVertex2f(5, 45);
+        glVertex2f(35, 45);
+        glVertex2f(15, 70);
+        glVertex2f(5, 70);
+    glEnd();
+
+    // Llantas (Negras)
+    glColor3f(0.1f, 0.1f, 0.1f);
+    dibujarCirculo(-45, 0, 18);
+    dibujarCirculo(45, 0, 18);
+
+    // Rines / Centros de llantas
+    glColor3f(0.7f, 0.7f, 0.7f);
+    dibujarCirculo(-45, 0, 7);
+    dibujarCirculo(45, 0, 7);
+
+    glPopMatrix();
+}
+
+// ---------------- PAISAJE Y CASA CORREGIDA ----------------
+void paisaje()
+{
+    // Cielo nocturno
+    glColor3f(0.02f, 0.02f, 0.25f);
+    glBegin(GL_POLYGON);
+        glVertex2f(0, 600);
+        glVertex2f(1000, 600);
+        glVertex2f(1000, 0);
+        glVertex2f(0, 0);
+    glEnd();
+
+    // Luna
+    glColor3f(0.9f, 0.9f, 0.8f);
+    dibujarCirculo(500, 350, 220);
+
+    // Resplandor de la luna
+    glColor4f(0.6f, 0.6f, 0.7f, 0.15f);
+    dibujarCirculo(500, 350, 260);
+
+    // Estrellas estáticas mediante patrón fijo o pseudo-aleatorio controlado
+    glPointSize(2);
+    glBegin(GL_POINTS);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    for(int i = 50; i < 950; i += 40)
+    {
+        // Usamos una operación matemática fija para evitar parpadeos caóticos si no se desea
+        glVertex2f(i, 480 + (i % 70)); 
+    }
+    glEnd();
+
+    // Nube izquierda
+    glColor3f(0.6f, 0.6f, 0.6f);
+    dibujarCirculo(100, 540, 60);
+    dibujarCirculo(170, 550, 55);
+    dibujarCirculo(230, 530, 50);
+
+    // Nube derecha
+    dibujarCirculo(700, 540, 55);
+    dibujarCirculo(770, 555, 65);
+    dibujarCirculo(850, 540, 50);
+
+    // Lluvia
+    glColor3f(0.6f, 0.6f, 0.8f);
+    glBegin(GL_LINES);
+    for(int i = 50; i < 950; i += 35)
+    {
+        glVertex2f(i, 550);
+        glVertex2f(i + 8, 520);
+    }
+    for(int i = 20; i < 950; i += 50)
+    {
+        glVertex2f(i, 450);
+        glVertex2f(i + 8, 420);
+    }
+    glEnd();
+
+    // -------------------------------------------
+    // RENDERIZADO DE LA CASA CORRECTA Y SIMÉTRICA
+    // -------------------------------------------
+
+    // 1. Chimenea (Se dibuja primero para que quede DETRÁS del tejado)
+    glColor3f(0.5f, 0.25f, 0.25f);
+    glBegin(GL_POLYGON);
+        glVertex2f(380, 320);
+        glVertex2f(420, 320);
+        glVertex2f(420, 440);
+        glVertex2f(380, 440);
+    glEnd();
+
+    // Tope negro de la chimenea
+    glColor3f(0.2f, 0.2f, 0.2f);
+    glBegin(GL_POLYGON);
+        glVertex2f(375, 440);
+        glVertex2f(425, 440);
+        glVertex2f(425, 450);
+        glVertex2f(375, 450);
+    glEnd();
+
+    // 2. Estructura/Paredes de la Casa (Centrada perfectamente en X: 350 a 650)
+    glColor3f(0.75f, 0.75f, 0.75f);
+    glBegin(GL_POLYGON);
+        glVertex2f(350, 150);
+        glVertex2f(650, 150);
+        glVertex2f(650, 340);
+        glVertex2f(350, 340);
+    glEnd();
+
+    // 3. Tejado (Triángulo perfecto apuntando al centro X=500)
+    glColor3f(0.7f, 0.15f, 0.15f);
+    glBegin(GL_TRIANGLES);
+        glVertex2f(320, 340); // Alero izquierdo
+        glVertex2f(680, 340); // Alero derecho
+        glVertex2f(500, 450); // Cúspide céntrica
+    glEnd();
+
+    // 4. Puerta de la casa (Centrada en el medio)
+    glColor3f(0.4f, 0.2f, 0.1f);
+    glBegin(GL_POLYGON);
+        glVertex2f(465, 150);
+        glVertex2f(535, 150);
+        glVertex2f(535, 250);
+        glVertex2f(465, 250);
+    glEnd();
+
+    // Pomo de la puerta
+    glColor3f(0.9f, 0.8f, 0.2f);
+    dibujarCirculo(475, 200, 4);
+
+    // 5. Ventana Izquierda (Iluminada / Amarilla)
+    glColor3f(0.95f, 0.95f, 0.4f);
+    glBegin(GL_POLYGON);
+        glVertex2f(380, 220);
+        glVertex2f(430, 220);
+        glVertex2f(430, 270);
+        glVertex2f(380, 270);
+    glEnd();
+
+    // Marcos de la ventana izquierda
+    glColor3f(0.3f, 0.3f, 0.3f);
+    glLineWidth(2);
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(380, 220); glVertex2f(430, 220);
+        glVertex2f(430, 270); glVertex2f(380, 270);
+    glEnd();
+
+    // 6. Ventana Derecha (Iluminada / Amarilla)
+    glColor3f(0.95f, 0.95f, 0.4f);
+    glBegin(GL_POLYGON);
+        glVertex2f(570, 220);
+        glVertex2f(620, 220);
+        glVertex2f(620, 270);
+        glVertex2f(570, 270);
+    glEnd();
+
+    // Marcos de la ventana derecha
+    glColor3f(0.3f, 0.3f, 0.3f);
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(570, 220); glVertex2f(620, 220);
+        glVertex2f(620, 270); glVertex2f(570, 270);
+    glEnd();
+
+    // Carretera (Fondo gris oscuro)
+    glColor3f(0.18f, 0.18f, 0.18f);
+    glBegin(GL_POLYGON);
+        glVertex2f(0, 0);
+        glVertex2f(1000, 0);
+        glVertex2f(1000, 150);
+        glVertex2f(0, 150);
+    glEnd();
+
+    // Líneas divisorias amarillas
+    glColor3f(1.0f, 0.82f, 0.0f);
+    for(int i = 0; i < 1000; i += 80)
+    {
+        glBegin(GL_QUADS);
+            glVertex2f(i, 65);
+            glVertex2f(i + 45, 65);
+            glVertex2f(i + 45, 73);
+            glVertex2f(i, 73);
+        glEnd();
+    }
+}
+
+// ---------------- DISPLAY ----------------
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0, 0, 0, 1);
+
+    if(opcion == 1)
+    {
+        paisaje();
+    }
+    else if(opcion == 2)
+    {
+        paisaje();
+        carro(); // El carro se dibuja encima de la carretera adecuadamente
+    }
+    else if(opcion == 3) 
+    {
+        drawOuterFrame();
+        drawColorFrame();
+
+        float r = (sin(colorShift) + 1) / 2;
+        float g = (sin(colorShift + 2) + 1) / 2;
+        float b = (sin(colorShift + 4) + 1) / 2;
+
+        glColor3f(r, g, b);
+        drawText(300, 255, 0.28, "THE MULTIFUNTION");
+
+        glLineWidth(6);
+        glBegin(GL_LINES);
+            glColor3f(0, 1, 1); glVertex2f(250, 150);
+            glColor3f(1, 0, 1); glVertex2f(750, 150);
+        glEnd();
+    }
+
+    glutSwapBuffers();
+}
+
+// ---------------- TIMER ----------------
+void timer(int value) {
+    colorShift += 0.03f;
+    glutPostRedisplay();
+    glutTimerFunc(30, timer, 0);
+}
+
+// ---------------- TECLADO ESPACIAL ----------------
+void specialKeyInput(int key, int x, int y)
+{
+    switch(key)
+    {
+        case GLUT_KEY_LEFT:
+            posX -= 12;      // Desplazamiento reactivo en píxeles
+            angulo = 0;      // Mantiene orientación o puedes cambiarlo si deseas rotación completa
+            break;
+
+        case GLUT_KEY_RIGHT:
+            posX += 12;
+            angulo = 0;
+            break;
+
+        case GLUT_KEY_UP:
+            posY += 12;      // Movimiento vertical libre solicitado en el reto
+            break;
+
+        case GLUT_KEY_DOWN:
+            posY -= 12;
+            break;
+    }
+
+    glutPostRedisplay();
+}
+
+// ---------------- MENÚ ----------------
+void menu(int value) {
+    if(value == 4) exit(0);
+    opcion = value;
+    glutPostRedisplay();
+}
+
+// ---------------- MAIN ----------------
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitWindowSize(1000, 600);
+    glutInitWindowPosition(100, 50);
+    glutCreateWindow("Laboratorio 6 - Reto Final");
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0, 1000, 0, 600); // Espacio de dibujo de 1000x600 píxeles discretos
+
+    glutDisplayFunc(display);
+    glutSpecialFunc(specialKeyInput);
+    glutTimerFunc(0, timer, 0);
+
+    glutCreateMenu(menu);
+    glutAddMenuEntry("Paisaje", 1);
+    glutAddMenuEntry("Carro con movimiento", 2);
+    glutAddMenuEntry("Identificacion del grupo", 3);
+    glutAddMenuEntry("Salida", 4);
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
+
+    glutMainLoop();
+    return 0;
+}
+
